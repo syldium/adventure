@@ -2105,6 +2105,17 @@ public interface Component extends ComponentBuilderApplicable, ComponentLike, Ex
   }
 
   /**
+   * Splits this component around matches of the given delimiter.
+   *
+   * @param regex the delimiting regular expression
+   * @return the list of components computed by splitting this component around matches
+   * @since 4.10.0
+   */
+  default @NotNull List<@NotNull Component> split(@NotNull Pattern regex) {
+    return ComponentSplitting.split(this, regex);
+  }
+
+  /**
    * Returns an iterable view of this component.
    *
    * @param type the type
